@@ -1,6 +1,6 @@
 module Controller
   class Homepage < ::Base
-    get "/" do
+    get "/home" do
       erb :homepage
     end
   end
