@@ -14,7 +14,7 @@ class ServerTest < Minitest::Test
   end
 
   def test_has_a_root_route
-    response = get "/"
+    response = get "/home"
     assert response.ok?
   end
 end
