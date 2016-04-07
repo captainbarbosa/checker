@@ -19,3 +19,5 @@ class Server < Base
 end
 
 Server.run! if $PROGRAM_NAME == __FILE__
+
+### MAIN APP CODE GOES HERE ###

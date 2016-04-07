@@ -5,6 +5,7 @@ require "bundler/setup"
 require "sinatra/base"
 require "json"
 require "pry"
+require "shotgun"
 
 # Project requires
 require "./lib/base_server"

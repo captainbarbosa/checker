@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "sinatra"
 gem "activerecord"
 gem "rake"
+gem "shotgun"
 
 group :test, :development do
   gem "pry"
