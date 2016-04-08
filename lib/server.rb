@@ -16,6 +16,8 @@ Tilt.register Tilt::ERBTemplate, "html.erb"
 class Server < Base
   # Each controller should be listed below
   use ::Controller::Homepage
+  use ::Controller::Login
+  use ::Controller::Task
 end
 
 Server.run! if $PROGRAM_NAME == __FILE__
