@@ -21,7 +21,10 @@ class UserTest < Minitest::Test
   end
 
   # 2
-  def test_user_has_email
+  def test_user_must_have_email
+    @invalid_user = User.create
+
+    assert_equal false, @invalid_user.valid?
     assert_equal "bob@email.com", @user.email
   end
 
@@ -32,5 +35,5 @@ class UserTest < Minitest::Test
 
     assert_equal [@task_1, @task_2], @user.tasks
   end
-  
+
 end
