@@ -21,4 +21,11 @@ class TaskControllerTest < Minitest::Test
     assert_equal true, response.body.include?("form action")
   end
 
+  def test_post_new_task_redirects
+    response = post "/tasks", {"name" => "Do the thing", "completed" => "false", "due_date" => "2015-04-04 00:00:00.000000"}
+
+    assert_equal 302, response.status
+    assert_equal "", response.errors
+  end
+
 end
