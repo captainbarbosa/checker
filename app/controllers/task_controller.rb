@@ -26,9 +26,8 @@ module Controller
 
     post "/tasks" do
       authenticate!
-      @task = ::Task.create!(name: params["task"], completed: false, due_date: params["due_date"])
+      @task = ::Task.create!(name: params["name"], completed: false, due_date: params["due_date"])
       current_user.tasks << @task
-
       redirect to("/tasks")
     end
   end

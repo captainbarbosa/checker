@@ -14,18 +14,18 @@ class TaskControllerTest < Minitest::Test
     assert response.body.include?("<!DOCTYPE html>")
   end
 
-  def test_new_task_reveals_form
+  def test_get_new_task_reveals_form
     response = get "tasks/new"
 
     assert response.ok?
     assert_equal true, response.body.include?("form action")
   end
 
-  def test_post_new_task_redirects
-    response = post "/tasks", {"name" => "Do the thing", "completed" => "false", "due_date" => "2015-04-04 00:00:00.000000"}
+  def test_post_new_task_creates_task
+    response = post "/tasks", :name => "Create a new task"
 
-    assert_equal 302, response.status
-    assert_equal "", response.errors
+    task = Task.where(name: "Create a new task").first
+    assert_equal true, task.valid?
   end
 
 end
