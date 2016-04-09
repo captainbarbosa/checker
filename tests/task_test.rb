@@ -4,7 +4,7 @@ require_relative '../app/models/task'
 class TaskTest < Minitest::Test
 
   def setup
-    @task = Task.create(task: "Do the thing", completed: false, due_date: Time.new(2016, 1, 1))
+    @task = Task.create(name: "Do the thing", completed: false, due_date: Time.new(2016, 1, 1))
     @user = User.create(email: "bob@email.com")
   end
 
@@ -20,7 +20,7 @@ class TaskTest < Minitest::Test
 
   # 2
   def test_task_has_description
-    assert_equal "Do the thing", @task.task
+    assert_equal "Do the thing", @task.name
   end
 
   # 3
@@ -53,5 +53,5 @@ class TaskTest < Minitest::Test
 
     assert_equal true, @task.user_id?
   end
-  
+
 end
