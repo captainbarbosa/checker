@@ -58,5 +58,11 @@ module Controller
 
       erb :'tasks/random'
     end
+
+    get "/tasks/search" do
+      authenticate!
+      @tasks = ::Task.where("name LIKE ?", "%#{params[:query]}%")
+      erb :'tasks/search_results'
+    end
   end
 end

@@ -57,4 +57,14 @@ class TaskControllerTest < Minitest::Test
     assert_equal nil, Task.find_by(name: "Delete me")
     assert response.redirect?
   end
+
+  def test_search_for_tasks
+    response = post "/tasks", :name => "Buy a pizza"
+    response = post "/tasks", :name => "Eat a pizza"
+    response = post "/tasks", :name => "Learn how to cook broccoli"
+
+    response = get "/tasks/search?query=pizza"
+
+    assert_equal false, response.body.include?("broccoli")
+  end
 end

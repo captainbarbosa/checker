@@ -7,10 +7,10 @@
   <body>
     <main>
 
-      <h1>Your tasks</h1>
+      <h1>Results</h1>
 
       <ul>
-        <% @user.tasks.each do |task| %>
+        <% @tasks.each do |task| %>
           <li><%= task.name %></li><a href="/tasks/update">UPDATE</a>
 
           <form class="deleted" action="/tasks/<%= task.id %>" method="post">
@@ -21,14 +21,6 @@
         <% end %>
       </ul>
 
-
-      <a href="/tasks/new">New Task</a>
-      <a href="/tasks/next">Random Task</a>
-
-      <form action="/tasks/search" method="get">
-        <input type="text" name="query"/>
-        <button type="submit">Search</button>
-      </form>
 
     </main>
     <aside class="">
