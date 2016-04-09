@@ -30,5 +30,18 @@ module Controller
       current_user.tasks << @task
       redirect to("/tasks")
     end
+
+    get "/tasks/update" do
+      authenticate!
+
+      erb :'tasks/update'
+    end
+
+    patch "/task/:id" do
+      authenticate!
+      task = current_user.tasks.find(params["id"])
+      task.update(name: params["name"], completed: params["completed"], due_date: params["due_date"])
+      redirect to("/tasks")
+    end
   end
 end
