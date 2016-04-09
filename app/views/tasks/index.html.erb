@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <main>
+
+      <h1>Your tasks</h1>
+
+      <div class = "tasks" style="border:1px dotted black;"><%= @user.tasks %></div>
+      <ul>
+        <% @user.tasks.each do |task| %>
+          <li><%= task.name %></li><a href="/tasks/update">UPDATE</a>
+        <% end %>
+      </ul>
+
+
+      <a href="/tasks/new">New Task</a>
+
+    </main>
+    <aside class="">
+
+    </aside>
+  </body>
+</html>
