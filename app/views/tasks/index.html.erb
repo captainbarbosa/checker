@@ -9,10 +9,15 @@
 
       <h1>Your tasks</h1>
 
-      <div class = "tasks" style="border:1px dotted black;"><%= @user.tasks %></div>
       <ul>
         <% @user.tasks.each do |task| %>
           <li><%= task.name %></li><a href="/tasks/update">UPDATE</a>
+
+          <form class="deleted" action="/tasks/<%= task.id %>" method="post">
+	          <input type="hidden" name="_method" value="delete">
+	          <button type="submit" name="button">Delete</button>
+	        </form>
+
         <% end %>
       </ul>
 

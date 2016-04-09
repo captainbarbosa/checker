@@ -43,5 +43,12 @@ module Controller
       task.update(name: params["name"], completed: params["completed"], due_date: params["due_date"])
       redirect to("/tasks")
     end
+
+    delete "/tasks/:id" do
+      authenticate!
+      @task = ::Task.find(params["id"])
+      @task.destroy!
+      redirect to("/tasks")
+    end
   end
 end

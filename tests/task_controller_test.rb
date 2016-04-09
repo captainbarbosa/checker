@@ -47,4 +47,14 @@ class TaskControllerTest < Minitest::Test
     assert_equal "After the update", task.name
     assert response.redirect?
   end
+
+  def test_delete_task
+    response = post "/tasks", :name => "Delete me"
+    task = Task.where(name: "Delete me").first
+    task_id = task.id
+    response = delete "/tasks/#{task_id}"
+
+    assert_equal nil, Task.find_by(name: "Delete me")
+    assert response.redirect?
+  end
 end
