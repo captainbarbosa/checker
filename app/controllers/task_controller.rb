@@ -26,7 +26,7 @@ module Controller
 
     post "/tasks" do
       authenticate!
-      @task = ::Task.create!(name: params["name"], completed: false, due_date: params["due_date"])
+      @task = ::Task.create!(name: params["name"], due_date: params["due_date"])
       current_user.tasks << @task
       redirect to("/tasks")
     end
@@ -49,6 +49,14 @@ module Controller
       @task = ::Task.find(params["id"])
       @task.destroy!
       redirect to("/tasks")
+    end
+
+    get "/tasks/next" do
+      authenticate!
+      incompletes = current_user.tasks.each { |task| current_user.tasks.delete(task) if task["completed"] == true }
+      @random_task = incompletes.sample
+
+      erb :'tasks/random'
     end
   end
 end

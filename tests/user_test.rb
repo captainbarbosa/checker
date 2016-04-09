@@ -5,8 +5,8 @@ class UserTest < Minitest::Test
 
   def setup
     @user = User.create(email: "bob@email.com")
-    @task_1 = Task.create(name: "First task", completed: false, due_date: Time.new(2016, 2, 2))
-    @task_2 = Task.create(name: "Second task", completed: false, due_date: Time.new(2016, 3, 3))
+    @task_1 = Task.create(name: "First task", due_date: Time.new(2016, 2, 2))
+    @task_2 = Task.create(name: "Second task", due_date: Time.new(2016, 3, 3))
   end
 
   def teardown

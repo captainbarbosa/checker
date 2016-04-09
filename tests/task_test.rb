@@ -4,7 +4,7 @@ require_relative '../app/models/task'
 class TaskTest < Minitest::Test
 
   def setup
-    @task = Task.create(name: "Do the thing", completed: false, due_date: Time.new(2016, 1, 1))
+    @task = Task.create(name: "Do the thing", due_date: Time.new(2016, 1, 1))
     @user = User.create(email: "bob@email.com")
   end
 
@@ -24,8 +24,8 @@ class TaskTest < Minitest::Test
   end
 
   # 3
-  def test_task_has_a_status
-    assert_equal false, @task.completed
+  def test_task_initially_has_no_status
+    assert_equal nil, @task.completed
   end
 
   # 4
@@ -52,6 +52,17 @@ class TaskTest < Minitest::Test
     @user.tasks << @task
 
     assert_equal true, @task.user_id?
+  end
+
+  def test_random_task_can_be_selected
+    @task_2 = Task.create(name: "Second task", due_date: Time.new(2016, 3, 3))
+
+    @user.tasks << @task
+    @user.tasks << @task_2
+
+    random_task = @user.tasks.sample
+
+    assert_equal true, random_task.is_a?(ActiveRecord::Base)
   end
 
 end
