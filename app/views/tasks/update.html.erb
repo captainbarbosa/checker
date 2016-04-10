@@ -8,7 +8,15 @@
     <main>
       <h1>Update this task:</h1>
 
-      <form action="" method="">
+      <form class="updated" action="/task/<%= @task.id %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <label for="name">Task:</label>
+        <input type="text" name="name"/>
+
+        <label for="due_date">Due Date:</label>
+        <input type="date" name="due_date"/>
+
+        <button type="submit" name="button">Update</button>
       </form>
 
     </main>

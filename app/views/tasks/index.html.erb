@@ -9,21 +9,38 @@
 
       <h1>Your tasks</h1>
 
+
       <ul>
         <% @user.tasks.each do |task| %>
-          <li><%= task.name %></li><a href="/tasks/update">UPDATE</a>
+          <% if task.completed != true %>
+            <li><%= task.name %>
 
-          <form class="deleted" action="/tasks/<%= task.id %>" method="post">
-	          <input type="hidden" name="_method" value="delete">
-	          <button type="submit" name="button">Delete</button>
-	        </form>
+              <%= task.due_date.strftime("%A, %B %d") unless task.due_date == nil %></li>
 
+            <form class="updated" action="/task/<%= task.id %>" method="post">
+              <input type="hidden" name="_method" value="patch">
+              <input type="hidden" name="completed" value="true">
+              <input type="hidden" name="name" value="<%= task.name %>">
+              <input type="hidden" name="due_date" value="<%= task.due_date %>">
+              <button type="submit" name="button">Complete</button>
+            </form>
+
+            <a href="/tasks/<%= task.id %>/edit">UPDATE</a>
+
+            <form class="deleted" action="/tasks/<%= task.id %>" method="post">
+  	          <input type="hidden" name="_method" value="delete">
+  	          <button type="submit" name="button">Delete</button>
+  	        </form>
+          <% end %>
         <% end %>
       </ul>
 
 
       <a href="/tasks/new">New Task</a>
-      <a href="/tasks/next">Random Task</a>
+
+      <% if @user.tasks != [] %>
+        <a href="/tasks/next">Random Task</a>
+      <% end %>
 
       <form action="/tasks/search" method="get">
         <input type="text" name="query"/>
