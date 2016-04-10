@@ -2,22 +2,41 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:600,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/new.css" media="screen" title="no title" charset="utf-8">
+    <title>Do the Thing</title>
   </head>
   <body>
     <main>
-      <h1>Add Task:</h1>
 
-      <form action="/tasks" method="post">
-        <label for="name">Task:</label>
-        <input type="text" name="name"/>
-
-        <label for="due_date">Due Date:</label>
-        <input type="date" name="due_date"/>
-
-        <button type="submit">Create Task</button>
-      </form>
-
+      <div class = "main-parent-container">
+        <div class = "main-child-container" id="child-index">
+          <h1>Add Task</h1>
+          <br>
+          <form action="/tasks" method="post" id="new-task-form">
+            <label for="name"><h4 id="name">Name</h4></label>
+            <br>
+            <div class="col-md-6" id="name-field">
+              <input type="text" class="form-control" name="name"/>
+            </div>
+            <br>
+            <br>
+            <br>
+            <label for="due_date"><h4 id="due-date">Due Date</h4></label>
+            <br>
+            <div class="col-md-3">
+              <input type="date" class="form-control" name="due_date" id="date-picker"/>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="submit" id="create-button">Create Task</button>
+          </form>
+        </div>
+      </div>
     </main>
     <aside class="">
 

@@ -1,0 +1,34 @@
+#random-task-name {
+  font-size: 35px;
+}
+
+#random-task {
+  margin: 5% 21% 0% 1%;
+}
+
+#zigzag_1 {
+  height: 180px;
+  float: left;
+  transform: rotate(172deg);
+  z-index: 1;
+  padding-right: 55px;
+  padding-bottom: 30px;
+}
+
+#zigzag_2 {
+  height: 180px;
+  float:right;
+  transform: rotate(8deg);
+  z-index: 1;
+  padding-right: 55px;
+  padding-top: 30px;
+}
+
+#child-index-random {
+background-color: #0118C8;
+width: 70%;
+padding: 20px;
+position: absolute;
+margin: 2% 0% 0% 13%;
+position: relative;
+}

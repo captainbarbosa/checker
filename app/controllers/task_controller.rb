@@ -65,5 +65,16 @@ module Controller
       @tasks = ::Task.where("name LIKE ?", "%#{params[:query]}%")
       erb :'tasks/search_results'
     end
+
+    # hard mode attempt
+    # get "/tasks/dashboard" do
+    #   authenticate!
+    #
+    #   @user = current_user
+    #
+    #   completed = ::Task.where(:completed => true, :updated_at => )
+    #   binding.pry
+    #   erb :'tasks/dashboard'
+    # end
   end
 end
