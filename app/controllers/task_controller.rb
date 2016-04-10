@@ -31,16 +31,17 @@ module Controller
       redirect to("/tasks")
     end
 
-    get "/tasks/update" do
+    get "/tasks/:id/edit" do
       authenticate!
+      @task = current_user.tasks.find(params["id"])
 
       erb :'tasks/update'
     end
 
     patch "/task/:id" do
       authenticate!
-      task = current_user.tasks.find(params["id"])
-      task.update(name: params["name"], completed: params["completed"], due_date: params["due_date"])
+      @task = current_user.tasks.find(params["id"])
+      @task.update(name: params["name"], completed: params["completed"], due_date: params["due_date"])
       redirect to("/tasks")
     end
 

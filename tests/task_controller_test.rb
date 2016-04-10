@@ -30,10 +30,13 @@ class TaskControllerTest < Minitest::Test
   end
 
   def test_task_update_reveals_form
-    response = get "tasks/update"
+    response = post "/tasks", :name => "Reveal the form"
+    task = Task.where(name: "Reveal the form").first
+    task_id = task.id
+    response = get "/tasks/#{task_id}/edit"
 
     assert response.ok?
-    assert_equal true, response.body.include?("form action")
+    assert_equal true, response.body.include?("form")
   end
 
   def test_patch_task
@@ -67,4 +70,5 @@ class TaskControllerTest < Minitest::Test
 
     assert_equal false, response.body.include?("broccoli")
   end
+
 end
