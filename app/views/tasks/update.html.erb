@@ -2,22 +2,40 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:600,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/new.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/update.css" media="screen" title="no title" charset="utf-8">
+
+    <title>Do the Thing</title>
   </head>
   <body>
     <main>
-      <h1>Update this task:</h1>
+      <div class = "main-parent-container">
+        <div class = "main-child-container" id="child-index">
+          <h1>Update this task</h1>
 
-      <form class="updated" action="/task/<%= @task.id %>" method="post">
-        <input type="hidden" name="_method" value="patch">
-        <label for="name">Task:</label>
-        <input type="text" name="name"/>
+            <div class="change-name">
+              <form class="updated" action="/task/<%= @task.id %>" method="post" id="new-task-form">
+                <input type="hidden" name="_method" value="patch">
+                <label for="name"><h4 id="update-name">Task:</h4></label>
+                <div class="col-md-6" id="name-field">
+                  <input type="text" class="form-control" name="name" placeholder="<%= @task.name %>"/>
+                </div>
+            </div>
 
-        <label for="due_date">Due Date:</label>
-        <input type="date" name="due_date"/>
+            <div class="change-date">
+              <label for="due_date"><h4 id="update-due-date">Due Date:</h4></label>
+              <div class="col-md-3">
+                <input type="date" class="form-control" name="due_date" id="date-change-picker"/>
+              </div>
 
-        <button type="submit" name="button">Update</button>
-      </form>
+              <button type="submit" name="button" id="update-button">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
 
     </main>
     <aside class="">

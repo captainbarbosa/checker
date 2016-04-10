@@ -1,0 +1,53 @@
+#child-index {
+  background-color: #0118C8;
+  width: 70%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  margin: 2% 0% 0% 13%;
+  position: relative;
+}
+
+#search {
+  margin: 4% 34% 0% 34%
+}
+
+div.task-links {
+  margin: 13% 34% 0% 38%;
+}
+
+#delete-button, #update-button, #complete-button {
+  color: #47D4E6;
+  background-color: #0118C8;
+  text-transform: uppercase;
+  border: 1px solid #47D4E6;
+  padding: 8px;
+}
+
+#delete-button:hover, #update-button:hover, #complete-button:hover,
+#new-task-button, #random-task-button {
+  color: #FFFFFF;
+  background-color: #47D4E6;
+}
+
+#update-button {
+  padding:10px;
+}
+
+ul.task-options {
+  list-style-type: none;
+  padding-left: 0px;
+  margin: 2%;
+}
+
+ul.task-list {
+  margin: 5% 4% 0% 4%;
+  text-align: center;
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+li.option{
+  display: inline-block;
+  margin: 3px;
+}

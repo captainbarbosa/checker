@@ -2,20 +2,43 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:600,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/homepage.css" media="screen" title="no title" charset="utf-8">
+    <title>Do the Thing</title>
   </head>
   <body>
     <main>
-      <h1>Do the Thing</h1>
+      <div class = "main-parent-container">
+        <div class = "main-child-container">
+          <h1>Do the Thing</h1>
 
-      <form action="/login" method="post">
-        <input type="email" name="email">
-        <button type="submit">Login</button>
-      </form>
+          <h2>Email</h2>
 
+          <div class ="envelopes">
+            <img src="/assets/envelope.png" id="envelope_1"></img>
+            <img src="/assets/envelope.png" id="envelope_2"></img>
+            <img src="/assets/envelope.png" id="envelope_3"></img>
+            <img src="/assets/envelope.png" id="envelope_4"></img>
+          </div>
+
+          <form action="/login" method="post">
+            <div class="col-md-4" id="email-form">
+              <div class="input-group">
+                <input type="email" name="email" class="form-control">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
     </main>
-    <aside class="">
-
-    </aside>
+    <footer>
+      Icons made by <a href="http://www.flaticon.com/authors/petr-had" title="Petr Had">Petr Had</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,31 @@
+#create-button {
+  color: #47D4E6;
+  background-color: #0118C8;
+  text-transform: uppercase;
+  border: 1px solid #47D4E6;
+  padding: 8px;
+}
+
+#create-button:hover {
+  color: #FFFFFF;
+  background-color: #47D4E6;
+}
+
+#new-task-form {
+  text-align: center;
+}
+
+#name, #due-date {
+  color: #FA5211;
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+#name-field {
+  margin: 0% 25%;
+}
+
+#date-picker {
+  margin: 0% 175%;
+}

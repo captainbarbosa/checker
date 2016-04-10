@@ -2,51 +2,70 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:600,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/index.css" media="screen" title="no title" charset="utf-8">
+    <title>Do the Thing</title>
   </head>
   <body>
     <main>
 
-      <h1>Your tasks</h1>
+      <div class = "main-parent-container">
+        <div class = "main-child-container" id="child-index">
+          <h1>Your tasks</h1>
 
+          <form action="/tasks/search" method="get">
+            <div class="col-md-4" id="search">
+              <div class="input-group">
+                <input type="text" class="form-control" name="query"/>
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-secondary" type="button">Search</button>
+                </span>
+              </div>
+            </div>
+          </form>
 
-      <ul>
-        <% @user.tasks.each do |task| %>
-          <% if task.completed != true %>
-            <li><%= task.name %>
+          <div class = "task-links">
+            <a href="/tasks/new" class="new-task" id="new-task-button">New Task</a>
+            <!-- <a href="/tasks/dashboard" class="new-task" id="new-task-button">Dashboard</a> -->
 
-              <%= task.due_date.strftime("%A, %B %d") unless task.due_date == nil %></li>
+            <% if @user.tasks != [] %>
+              <a href="/tasks/next" class="random-task" id="random-task-button">Random Task</a>
+            <% end %>
 
-            <form class="updated" action="/task/<%= task.id %>" method="post">
-              <input type="hidden" name="_method" value="patch">
-              <input type="hidden" name="completed" value="true">
-              <input type="hidden" name="name" value="<%= task.name %>">
-              <input type="hidden" name="due_date" value="<%= task.due_date %>">
-              <button type="submit" name="button">Complete</button>
-            </form>
+          </div>
+          <br>
+          <ul class="task-list">
+            <% @user.tasks.each do |task| %>
+              <% if task.completed != true %>
+                <li><h3><%= task.name %></h3>
 
-            <a href="/tasks/<%= task.id %>/edit">UPDATE</a>
+                  <%= task.due_date.strftime("%A, %B %d") unless task.due_date == nil %></li>
 
-            <form class="deleted" action="/tasks/<%= task.id %>" method="post">
-  	          <input type="hidden" name="_method" value="delete">
-  	          <button type="submit" name="button">Delete</button>
-  	        </form>
-          <% end %>
-        <% end %>
-      </ul>
+                  <ul class="task-options">
 
+                    <li class="option"><form class="updated" action="/task/<%= task.id %>" method="post">
+                      <input type="hidden" name="_method" value="patch">
+                      <input type="hidden" name="completed" value="true">
+                      <input type="hidden" name="name" value="<%= task.name %>">
+                      <input type="hidden" name="due_date" value="<%= task.due_date %>">
+                      <button type="submit" name="button" id="complete-button">Complete</button>
+                    </form></li>
 
-      <a href="/tasks/new">New Task</a>
+                    <li class="option"><a href="/tasks/<%= task.id %>/edit" id="update-button">UPDATE</a></li>
 
-      <% if @user.tasks != [] %>
-        <a href="/tasks/next">Random Task</a>
-      <% end %>
+                    <li class="option"><form class="deleted" action="/tasks/<%= task.id %>" method="post">
+          	          <input type="hidden" name="_method" value="delete">
+          	          <button type="submit" name="button" id="delete-button">Delete</button>
+          	        </form></li>
+                  </ul>
+              <% end %>
+            <% end %>
+          </ul>
 
-      <form action="/tasks/search" method="get">
-        <input type="text" name="query"/>
-        <button type="submit">Search</button>
-      </form>
-
+        </div>
+      </div>
     </main>
     <aside class="">
 

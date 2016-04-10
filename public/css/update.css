@@ -1,0 +1,41 @@
+#update-name {
+  font-weight: 900;
+  font-size: 25px;
+  color: #FA5211;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  /*margin: 0% 0% 0% 23%;
+  padding: 0% 57%;
+  display:inline;*/
+}
+
+#update-due-date {
+  font-weight: 900;
+  font-size: 25px;
+  color: #FA5211;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-left: 135px;
+}
+
+div.change-date{
+  margin:0px;
+}
+
+div.change-name{
+  margin: 0% 0% 10% 0%;
+}
+
+#date-change-picker {
+  margin: 30% 175%;
+}
+
+#update-button {
+  color: #47D4E6;
+  background-color: #0118C8;
+  text-transform: uppercase;
+  border: 1px solid #47D4E6;
+  padding: 8px;
+  margin: 7% 0% 0% 46%;
+  display:block;
+}

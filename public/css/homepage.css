@@ -1,0 +1,33 @@
+.envelopes{
+  position: absolute;
+  margin: 5% 37%;
+}
+
+#envelope_1 {
+  transform: rotate(15deg);
+  padding: 0px 8px;
+  height: 35px;
+}
+
+#envelope_2 {
+  transform: rotate(8deg);
+  padding: 10px 8px;
+  height: 35px;
+}
+
+#envelope_3 {
+  transform: rotate(-8deg);
+  height: 35px;
+  padding: 0px 8px;
+}
+
+#envelope_4 {
+  transform: rotate(20deg);
+  padding: 3px 8px;
+  height: 35px;
+}
+
+#email-form {
+  margin-left: 34%;
+  margin-top: 15%;
+}
