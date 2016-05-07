@@ -1,18 +1,14 @@
-# DB
-  1. Database config
-  2. Databases are not just created `rake db:create` if using postgres
-  2. Migrations vis `rake db:migrate`
-  2. Make a new migration `rake generate:migration {name of migration}`
-  3. Torch db via `rake db:drop`
+# Do the Thing
 
-## Must have Locally
+A to-do list app built with Sinatra and ActiveRecord.   
+Created as an assignment while at The Iron Yard.    
 
-1. `brew install postgres`
-**Follow instructions to setup first db**
+To see it in action, download the repository and run `rake db:migrate`, followed by `ruby lib/server.rb` in the root directory.
 
-## Deploying to heroku
+Things you can do
+* Create a new task
+* Edit a task
+* Mark a task as complete
+* Generate a random incomplete task
 
-1. Ensure you have heroku toolbelt
-2. Run `heroku create`
-3. Run `heroku run "rake db:migrate"` to migrate your servers database
-3. Poke it with `heroku run bash` to spawn a "ssh" session on heroku
+![alt text](assets/images/screenshot.png)
