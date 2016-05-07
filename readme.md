@@ -11,4 +11,4 @@ Things you can do
 * Mark a task as complete
 * Generate a random incomplete task
 
-![alt text](assets/images/screenshot.png)
+![screenshot](/public/assets/screenshot.png?raw=true "Screenshot")
